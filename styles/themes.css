@@ -4,3 +4,78 @@
 ✦ theme-light — класс светлой темы
 ✦ не забудьте описать стили для изменения темы через медизапрос пользовательских предпочтений
 */
+
+@media (prefers-color-scheme: light) {
+    :root {
+      --main-body-color: #fff;
+      --core-color: #000;
+      --contour-color: #000;
+      --sparks-color: red;
+      --page-background: #fff;
+      --background-color: #d3d3d3;
+      --title-font-weight: "wght" 700;
+      --text-font-weight: "wght" 400;
+      --text-color: #000;
+      --font-size: 14px;
+      --button-text: #fff;
+      --bg-image: 
+      repeating-linear-gradient(
+        to right, 
+        #d3d3d3 0,
+        #d3d3d3 2px,
+        transparent 2px,
+        transparent 4px
+      ), 
+      repeating-linear-gradient(
+        to bottom, 
+        #d3d3d3 0,
+        #d3d3d3 2px,
+        transparent 2px,
+        transparent 4px
+      ),
+      linear-gradient(
+        to bottom,
+        #e7e7e7 0.01%,
+        #000
+      );
+    }
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --main-body-color: #000;
+      --core-color: #00cc14;
+      --contour-color: #00cc14;
+      --sparks-color: red;
+      --button-text: #00cc14;
+      --page-background: #000;
+      --background-color: var(--page-background);
+      --background-color-start: #007f0c;
+      --background-color-end: #004306;
+      --title-font-weight: "wght" 785;
+      --text-font-weight: "wght" 465;
+      --header-background: var(--page-background);
+      --text-color: #00cc14;
+      --font-size: 14px;
+      --bg-image: 
+      repeating-linear-gradient(
+        to right, 
+        #000 0,
+        #000 2px,
+        transparent 2px,
+        transparent 4px
+      ), 
+      repeating-linear-gradient(
+        to bottom, 
+        #000 0,
+        #000 2px,
+        transparent 2px,
+        transparent 4px
+      ),
+      linear-gradient(
+        to bottom,
+        #007f0c 0.01%,
+        #004306
+      );
+    }
+  }
