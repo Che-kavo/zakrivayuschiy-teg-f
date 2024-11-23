@@ -28,7 +28,6 @@
   min-block-size: 100dvb;
 }
 
-
 .header {
   display: flex;
   flex-direction: column;
@@ -232,7 +231,6 @@
 block-size: 38px;
 background: transparent;
 border: none;
-background-color: transparent;
 transition-duration: 0.3s;
 transition-timing-function: ease;
 cursor: pointer;
