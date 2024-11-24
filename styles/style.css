@@ -15,7 +15,7 @@
 */
 
 .page {
-  color: var( --text-color);
+  color: var(--text-color);
   background: var(--page-background);
   font-family: var(--main-font-family);
   font-size: var(--font-size);
@@ -42,7 +42,6 @@
   margin: 100px auto 100px auto;
   inline-size: clamp(23.438rem, 16.285rem + 30.52vw, 43.75rem);
 }
-
 
 .container__header {
   display: flex;
@@ -132,6 +131,7 @@
   align-items: center;
   gap: 50px;
   margin: 0 auto;
+  padding-block-end: 105px;
 }
 
 .title {
@@ -167,13 +167,20 @@
   z-index: 1;
   text-transform: uppercase;
   inset-inline-end: 13px;
-  inset-block-start: 28px;
+  inset-block-start: 24px;
   mix-blend-mode: hard-light;
   font-size: 14px;
   font-family: var(--fantasy-font-family);
   opacity: 0.5;
   text-shadow: 0 0 2px var(--page-background);
-  color: var(--text-color);
+}
+
+@supports (-webkit-text-stroke: 1px black) or (text-stroke: 1px black) {
+  .images__label {
+      text-shadow: none;
+      -webkit-text-stroke: 1px var(--page-background);
+      text-stroke: 1px var(--page-background);
+  }
 }
 
 .card__images {
@@ -181,6 +188,7 @@
   display: block;
   inline-size: 100%;
   block-size: 100%;
+  aspect-ratio: 1 / 1;
 }
 
 .filter__grayscale {
@@ -188,7 +196,7 @@
 }
 
 .filter__multiple {
-  filter: contrast(50%) hue-rotate(35deg) saturate(130%);;
+  filter: contrast(50%) hue-rotate(35deg) saturate(130%);
 }
 
 .filter__saturate {
@@ -211,30 +219,32 @@
   filter: hue-rotate(90deg) blur(1px) contrast(55%);
 }
 
+.body__conteiner {
+  padding: 25px;
+}
+
 .text__card {
   display: flex;
   flex-direction: column;
-  padding: 25px 25px 0 25px;
   gap: 27px;
-
 }
 
 .button__card {
   display: flex;
-  justify-content: end;
-  align-items: stretch;
+  justify-content: flex-end;
+  max-block-size: 38px;
+  margin-block-start: 25px;
   gap: 5px;
-  padding: 25px 25px 23px 25px;
 }
 
 .card__like-button {
-block-size: 38px;
-background: transparent;
-border: none;
-transition-duration: 0.3s;
-transition-timing-function: ease;
-cursor: pointer;
-padding: 10px 36px;
+  background: transparent;
+  border: none;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+  cursor: pointer;
+  inline-size: 130px;
+  block-size: 38px;
 }
 
 .button {
@@ -247,7 +257,14 @@ padding: 10px 36px;
 }
 
 .button__text {
+  display: flex;
   font-variation-settings: var(--text-font-weight);
+  font-family: var(--fantasy-font-family);
+  font-size: var(--font-size);
+  position: relative;
+  color: var(--button-text);
+  mix-blend-mode: difference;
+  justify-content: center;
 }
 
 .button:focus {
@@ -257,9 +274,9 @@ padding: 10px 36px;
 .button:focus-visible {
   box-shadow: 2px 2px 0 0 var(--text-color);
 }
-  
+
 .button::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background-color: var(--text-color);
@@ -279,7 +296,10 @@ padding: 10px 36px;
   transition-duration: 0.3s;
   transition-timing-function: ease;
   padding: 0;
-  display: flex;
+}
+
+.card__icon-button:focus-visible {
+  border-color: var(--text-color, #000000);
 }
 
 .card__icon-button:focus {
@@ -334,7 +354,7 @@ padding: 10px 36px;
   transition: fill 0.3s linear 0.05s;
 }
 
-.like-icon:active  .heart {
+.like-icon:active .heart {
   fill: var(--sparks-color);
 }
 
@@ -363,15 +383,6 @@ padding: 10px 36px;
   animation: sparks 0.3s 0.3s ease-in reverse;
 }
 
-.button__text {
-  font-family: var(--fantasy-font-family);
-  font-size: var(--font-size);
-  position: relative;
-  color: var(--button-text);
-  mix-blend-mode: difference;
-  align-items: center;
-}
-
 .save__button {
   display: flex;
   flex-wrap: wrap;
@@ -384,15 +395,10 @@ padding: 10px 36px;
 }
 
 @media screen and (max-width: 376px) {
-
   .save__button {
-  max-inline-size: 306px;
-  padding: 20px 15px;
+      max-inline-size: 306px;
+      padding: 20px 15px;
   }
-}
-
-.footer {
-  padding-block: 50px 105px;
 }
 
 .modal {
@@ -412,11 +418,9 @@ padding: 10px 36px;
 }
 
 @media screen and (max-width: 376px) {
-
   .modal[open] {
-    max-inline-size: 341px;
+      max-inline-size: 341px;
   }
-
 }
 
 .modal::backdrop {
@@ -437,9 +441,8 @@ padding: 10px 36px;
 }
 
 @media screen and (max-width: 376px) {
-
   .dialog__form {
-  max-inline-size: 257px;
+      max-inline-size: 257px;
   }
 }
 
@@ -469,11 +472,9 @@ padding: 10px 36px;
 }
 
 @media screen and (max-width: 376px) {
-
   .modal__content {
-    max-inline-size: 257px;
+      max-inline-size: 257px;
   }
-
 }
 
 .modal__text {
@@ -486,9 +487,8 @@ padding: 10px 36px;
 }
 
 @media screen and (max-width: 376px) {
-
   .button__icon {
-  width: 28px;
-  height: 28px;
+      width: 28px;
+      height: 28px;
   }
 }
